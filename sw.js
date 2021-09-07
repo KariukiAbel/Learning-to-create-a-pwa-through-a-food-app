@@ -14,11 +14,11 @@ const assets = [
 //install the service worker
 self.addEventListener('install', evt => {
     //console.log("service worker has been installed")
-    evt.waitUntl(
+    evt.waitUntil(
         caches.open(staticCacheName).then(cache => {
-            console.log('caching shell assets')
-            cache.addAll(assets)
-        }))
+            console.log('caching shell assets');
+            cache.addAll(assets);
+        }));
 
 });
 
