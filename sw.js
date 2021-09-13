@@ -9,6 +9,8 @@ const assets = [
     'css/materialize.min.css',
     '/img/dish.png',
     'https://fonts.googleapis.com/icon?family=Material+Icons',
+    'https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css',
+    'https: //cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js',
 ];
 
 //install the service worker
@@ -29,5 +31,5 @@ self.addEventListener('activate', evt => {
 
 // fetch events
 self.addEventListener('fetch', evt => {
-    //console.log('fetch event ', evt)
+    console.log('fetch event ', evt)
 })
