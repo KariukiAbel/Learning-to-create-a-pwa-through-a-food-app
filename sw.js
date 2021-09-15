@@ -14,6 +14,16 @@ const assets = [
     'https: //cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js',
     '/pages/fallback.html'
 ];
+//cache size limit function
+const limitCacheSize = (name, size) => {
+    caches.open(name).then(cache => {
+        cache.keys().then(keys => {
+            if (keys.length > size) {
+                cache.delete(keys[0]).then(limitCacheSize(name, size))
+            }
+        })
+    })
+}
 
 //install the service worker
 self.addEventListener('install', evt => {
@@ -48,6 +58,7 @@ self.addEventListener('fetch', evt => {
             return cacheRes || fetch(evt.request).then(fetchRes => {
                 return caches.open(dynamicCacheName).then(cache => {
                     cache.put(evt.request.url, fetchRes.clone())
+                    limitCacheSize(dynamicCacheName, 15)
                     return fetchRes
                 })
             })
