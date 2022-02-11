@@ -129,8 +129,36 @@
         </form>
     </div>
 
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-app.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-firestore.js";
+
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.6/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyD9h3PEXk0RDIDRK9ZV5tTpQyGKUG1C2Uc",
+        authDomain: "foodpwa-539cc.firebaseapp.com",
+        projectId: "foodpwa-539cc",
+        storageBucket: "foodpwa-539cc.appspot.com",
+        messagingSenderId: "1028172906171",
+        appId: "1:1028172906171:web:b35363ff39b9f3d7cbb39e",
+        measurementId: "G-89NKKG38FN"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = firestore();
+      const analytics = getAnalytics(app);
+    </script>
+
     <!-- adding our own custom js -->
     <script src="/js/app.js"></script>
+    <script src="/js/db.js"></script>
     <script src="/js/ui.js"></script>
 </body>
 
