@@ -37,3 +37,11 @@ form.addEventListener('submit', evt => {
     form.title.value = ''
     form.ingredients.value = ''
 })
+
+const recipeContainer = document.querySelector('.recipes')
+recipeContainer.addEventListener('click', evt => {
+    if (evt.target.tagName === 'I') {
+        const id = evt.target.getAttribute('data-id')
+        db.collection('recipes').doc(id).delete()
+    }
+})
