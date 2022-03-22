@@ -18,7 +18,7 @@ db.collection('recipes').onSnapshot((snapshot) => {
             renderRecipe(change.doc.data(), change.doc.id);
         }
         if (change.type === 'removed') {
-
+            removeRecipe(change.doc.id)
         }
     });
 });
